@@ -31,7 +31,7 @@
             <option value="Marketing">Marketing</option>
             <option value="Sales">Sales</option>
         </select> 
-        Total Salary: $<input type="text"  id="total-salarty" size="10" readonly/>
+        Total Salary: $<input type="text"  id="total-salary" size="10" readonly/>
         Average Age: <input type="text"  id="average-age" size="5" readonly/>
         Selected Employee Count: <input type="text"  id="selected-employee-count" size="5" readonly/>
     </div>
@@ -39,7 +39,6 @@
 </header>
 
 <section>
-
     <table id="data_table" class="display">
     <thead>
         <tr>
@@ -79,7 +78,7 @@
 <script>
     $(document).ready(function () {
         let dataTable = $('#data_table').DataTable({
-            dom: 'lrtip', // Hide the global search input 
+            // dom: 'lrtip', // Hide the global search input 
             columnDefs: [ // Hide the sortating buttom from the first column
                 { orderable: false, targets: 0 }
             ],
@@ -91,7 +90,7 @@
             ],
             fixedHeader : {
                 header : true,
-                footer : true,
+                footer : false,
                 headerOffset: 123
         }
     });
@@ -140,7 +139,7 @@
     }
 
     function updateSalaryAndAge(totalSalary, averageAge, totalSelected) {
-        $("#total-salarty").val(totalSalary.toLocaleString());
+        $("#total-salary").val(totalSalary.toLocaleString());
         $("#average-age").val(averageAge);
         $("#selected-employee-count").val(totalSelected);
     }
